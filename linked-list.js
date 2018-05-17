@@ -94,6 +94,27 @@ class LinkedList {
 
   }
 
+  insertAfter(item, key) {
+
+    if (!this.head) this.insertFirst(item);
+
+    if (!this.head.next) this.insertLast(item);
+
+    let currNode = this.head;
+    let nextNode = this.head;
+
+    while (currNode.value !== key) {
+      currNode = nextNode;
+      nextNode = nextNode.next;
+    }
+
+    let newItem = new _Node(item);
+
+    currNode.next = newItem;
+    newItem.next = nextNode;
+
+  }
+
 }
 
 function main() {
@@ -105,7 +126,7 @@ function main() {
   SSL.insertLast('Husker');
   SSL.insertLast('Starbuck');
   SSL.insertLast('Tauhida');
-  SSL.insertBefore('Dylan', 'Husker');
+  SSL.insertAfter('Dylan', 'Helo');
   console.log(JSON.stringify(SSL, null, 2));
 
 }
