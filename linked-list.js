@@ -196,6 +196,20 @@ function findPrevious(list, key) {
   return previousNode.value;
 }
 
+function findLast(list) {
+  if (!list.head) return;
+
+  let currNode = list.head;
+
+  while (currNode.next !== null) {
+    currNode = currNode.next;
+  }
+
+  console.log(currNode.value);
+  return currNode.value;
+
+}
+
 const SSL = new LinkedList();
 const mySSL = new LinkedList();
 
@@ -221,3 +235,4 @@ isEmpty(mySSL);
 isEmpty(SSL);
 
 findPrevious(SSL, 'Helo');
+findLast(SSL);
