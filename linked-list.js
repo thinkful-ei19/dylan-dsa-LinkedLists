@@ -139,7 +139,12 @@ class LinkedList {
 }
 
 function display(list) {
-  if (list.head) console.log(list.head.value);
+  if (list.head) {
+    console.log(list.head.value);
+  } else {
+    console.log('Empty list');
+    return;
+  }
 
   let currNode = list.head;
 
@@ -166,7 +171,12 @@ function size(list) {
 
 }
 
+function isEmpty(list) {
+
+}
+
 const SSL = new LinkedList();
+const mySSL = new LinkedList();
 
 function main() {
 
@@ -176,12 +186,12 @@ function main() {
   SSL.insertLast('Husker');
   SSL.insertLast('Starbuck');
   SSL.insertLast('Tauhida');
-  // SSL.insertAfter('Dylan', 'Helo');
   SSL.insertAt('Dylan', 3);
   // console.log(JSON.stringify(SSL, null, 2));
 
 }
 
 main();
+display(mySSL);
 display(SSL);
 size(SSL);
