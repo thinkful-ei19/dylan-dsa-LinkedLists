@@ -72,4 +72,42 @@ class LinkedList {
     }
     previousNode.next = currNode.next;
   }
+
+  insertBefore(item, key) {
+
+    if (!this.head) this.insertFirst(item);
+
+    if (this.head.value === key) this.insertFirst(item);
+
+    let currNode = this.head;
+    let previousNode = this.head;
+
+    while (currNode.value !== key) {
+      previousNode = currNode;
+      currNode = currNode.next;
+    }
+
+    let newItem = new _Node(item);
+
+    previousNode.next = newItem;
+    newItem.next = currNode;
+
+  }
+
 }
+
+function main() {
+
+  const SSL = new LinkedList();
+  SSL.insertFirst('Apollo');
+  SSL.insertLast('Boomer');
+  SSL.insertLast('Helo');
+  SSL.insertLast('Husker');
+  SSL.insertLast('Starbuck');
+  SSL.insertLast('Tauhida');
+  SSL.insertBefore('Dylan', 'Husker');
+  console.log(JSON.stringify(SSL, null, 2));
+
+}
+
+main();
