@@ -87,10 +87,9 @@ class LinkedList {
       currNode = currNode.next;
     }
 
-    let newItem = new _Node(item);
+    let newItem = new _Node(item, currNode);
 
     previousNode.next = newItem;
-    newItem.next = currNode;
 
   }
 
@@ -108,10 +107,9 @@ class LinkedList {
       nextNode = nextNode.next;
     }
 
-    let newItem = new _Node(item);
+    let newItem = new _Node(item, nextNode);
 
     currNode.next = newItem;
-    newItem.next = nextNode;
 
   }
 
@@ -132,9 +130,8 @@ class LinkedList {
       counter++;
     }
 
-    let newItem = new _Node(item);
+    let newItem = new _Node(item, currNode);
 
-    newItem.next = currNode;
     previousNode.next = newItem;
 
   }
@@ -150,7 +147,8 @@ function main() {
   SSL.insertLast('Husker');
   SSL.insertLast('Starbuck');
   SSL.insertLast('Tauhida');
-  SSL.insertAt('Dylan', 5);
+  // SSL.insertAfter('Dylan', 'Helo');
+  SSL.insertAt('Dylan', 3);
   console.log(JSON.stringify(SSL, null, 2));
 
 }
