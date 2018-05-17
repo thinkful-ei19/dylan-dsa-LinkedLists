@@ -290,9 +290,38 @@ function middleOfList(list) {
 
 }
 
+//////////////////////////
+//CYCLE DETECTION
+/////////////////////////
+function hasCycle(list) {
+  if (!list.head) return;
+  if (list.head.next.value === list.head.value) {
+    console.log('true');
+    return true;
+  }
+
+  let fast = list.head;
+  let slow = list.head;
+
+  while (fast.next && fast) {
+    fast = fast.next.next;
+    slow = slow.next;
+
+    if (slow.value === fast.value) {
+      console.log('true');
+      return true;
+    }
+
+  }
+
+  console.log('false');
+
+}
+
 
 const SSL = new LinkedList();
 const mySSL = new LinkedList();
+const cycleList = new LinkedList();
 
 function main() {
 
@@ -306,11 +335,23 @@ function main() {
   SSL.insertAt('Dylan', 3);
   // console.log(JSON.stringify(SSL, null, 2));
 
+  cycleList.insertFirst('2');
+  cycleList.insertLast('0');
+  cycleList.insertLast('6');
+  cycleList.insertLast('3');
+  cycleList.insertLast('1');
+  cycleList.insertLast('6');
+  cycleList.insertLast('3');
+  cycleList.insertLast('1');
+  cycleList.insertLast('0');
+  // cycleList.insertLast('Dylan');
+
 }
 
 main();
-display(SSL);
-middleOfList(SSL);
+display(cycleList);
+hasCycle(cycleList);
+// middleOfList(SSL);
 // thirdFromEnd(SSL);
 // reverseList(SSL);
 // display(SSL);
