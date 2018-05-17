@@ -29,6 +29,25 @@ class DoublyLinkedList {
 
   }
 
+  insertBefore(item, key) {
+
+    if (!this.head) this.insertFirst(item);
+
+    if (this.head.value === key) this.insertFirst(item);
+
+    let currNode = this.head;
+    let previousNode = this.head;
+
+    while (currNode.value !== key) {
+      previousNode = currNode;
+      currNode = currNode.next;
+    }
+
+    let newItem = new _DoubleNode(item, currNode, previousNode);
+    previousNode.next = newItem;
+
+  }
+
 
 }
 
@@ -42,6 +61,7 @@ function main() {
   DBL.insertLast('Husker');
   DBL.insertLast('Starbuck');
   DBL.insertLast('Tauhida');
+  DBL.insertBefore('Dylan', 'Boomer');
 
   console.log(DBL);
   // console.log(JSON.stringify(DBL, null, 2));
