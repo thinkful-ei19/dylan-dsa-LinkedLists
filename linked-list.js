@@ -139,17 +139,15 @@ class LinkedList {
 }
 
 function display(list) {
-  if (list.head) {
-    console.log(list.head.value);
-  } else {
+  if (!list.head) {
     console.log('Empty list');
     return;
   }
 
   let currNode = list.head;
 
-  while (currNode.next !== null) {
-    console.log(currNode.next.value);
+  while (currNode !== null) {
+    console.log(currNode.value);
     currNode = currNode.next;
   }
 
@@ -210,6 +208,29 @@ function findLast(list) {
 
 }
 
+//////////////////////////
+//MYSTERY PROGRAM
+/////////////////////////
+
+function WhatDoesThisProgramDo(lst) {
+  let current = lst.head;
+  while (current !== null) {
+    let newNode = current;
+    while (newNode.next !== null) {
+      if (newNode.next.value === current.value) {
+        newNode.next = newNode.next.next;
+      }
+      else {
+        newNode = newNode.next;
+      }
+    }
+    current = current.next;
+  }
+}
+
+//This algorithm keeps sending newNode to the second the last spot in the linked list
+//RUNTIME: O(n^2) - polynomial - for the nested while loops.
+
 const SSL = new LinkedList();
 const mySSL = new LinkedList();
 
@@ -227,12 +248,14 @@ function main() {
 }
 
 main();
-display(mySSL);
-display(SSL);
-size(mySSL);
-size(SSL);
-isEmpty(mySSL);
-isEmpty(SSL);
+// display(SSL);
+// display(SSL);
+// display(mySSL);
+// display(SSL);
+// size(mySSL);
+// size(SSL);
+// isEmpty(mySSL);
+// isEmpty(SSL);
 
-findPrevious(SSL, 'Helo');
-findLast(SSL);
+// findPrevious(SSL, 'Helo');
+// findLast(SSL);
