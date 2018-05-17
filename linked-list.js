@@ -231,6 +231,31 @@ function WhatDoesThisProgramDo(lst) {
 //This algorithm keeps sending newNode to the second the last spot in the linked list
 //RUNTIME: O(n^2) - polynomial - for the nested while loops.
 
+
+//////////////////////////
+//REVERSE A LIST
+/////////////////////////
+
+function reverseList(list) {
+
+  if (!list.head) return;
+
+  let currNode = list.head;
+  let nextNode = null;
+  let previousNode = null;
+
+  while (currNode !== null) {
+    nextNode = currNode.next;
+    currNode.next = previousNode;
+    previousNode = currNode;
+    currNode = nextNode;
+  }
+
+  list.head = previousNode;
+
+}
+
+
 const SSL = new LinkedList();
 const mySSL = new LinkedList();
 
@@ -248,7 +273,9 @@ function main() {
 }
 
 main();
-// display(SSL);
+display(SSL);
+reverseList(SSL);
+display(SSL);
 // display(SSL);
 // display(mySSL);
 // display(SSL);
