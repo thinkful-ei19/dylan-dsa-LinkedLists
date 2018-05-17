@@ -158,7 +158,12 @@ function display(list) {
 function size(list) {
   let n = 0;
 
-  if (list.head) n = 1;
+  if (list.head) {
+    n = 1;
+  } else {
+    console.log('Empty list');
+    return;
+  }
 
   let currNode = list.head;
   while (currNode.next !== null) {
@@ -172,7 +177,7 @@ function size(list) {
 }
 
 function isEmpty(list) {
-
+  list.head ? console.log('false') : console.log('true');
 }
 
 const SSL = new LinkedList();
@@ -194,4 +199,7 @@ function main() {
 main();
 display(mySSL);
 display(SSL);
+size(mySSL);
 size(SSL);
+isEmpty(mySSL);
+isEmpty(SSL);
