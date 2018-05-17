@@ -138,9 +138,38 @@ class LinkedList {
 
 }
 
+function display(list) {
+  if (list.head) console.log(list.head.value);
+
+  let currNode = list.head;
+
+  while (currNode.next !== null) {
+    console.log(currNode.next.value);
+    currNode = currNode.next;
+  }
+
+}
+
+function size(list) {
+  let n = 0;
+
+  if (list.head) n = 1;
+
+  let currNode = list.head;
+  while (currNode.next !== null) {
+    currNode = currNode.next;
+    n++;
+  }
+
+  console.log(n);
+  return n;
+
+}
+
+const SSL = new LinkedList();
+
 function main() {
 
-  const SSL = new LinkedList();
   SSL.insertFirst('Apollo');
   SSL.insertLast('Boomer');
   SSL.insertLast('Helo');
@@ -149,8 +178,10 @@ function main() {
   SSL.insertLast('Tauhida');
   // SSL.insertAfter('Dylan', 'Helo');
   SSL.insertAt('Dylan', 3);
-  console.log(JSON.stringify(SSL, null, 2));
+  // console.log(JSON.stringify(SSL, null, 2));
 
 }
 
 main();
+display(SSL);
+size(SSL);
