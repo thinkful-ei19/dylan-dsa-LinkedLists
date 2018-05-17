@@ -180,6 +180,22 @@ function isEmpty(list) {
   list.head ? console.log('false') : console.log('true');
 }
 
+function findPrevious(list, key) {
+
+  if (!list.head) return;
+
+  let currNode = list.head;
+  let previousNode = list.head;
+
+  while (currNode.value !== key) {
+    previousNode = currNode;
+    currNode = currNode.next;
+  }
+
+  console.log(previousNode.value);
+  return previousNode.value;
+}
+
 const SSL = new LinkedList();
 const mySSL = new LinkedList();
 
@@ -203,3 +219,5 @@ size(mySSL);
 size(SSL);
 isEmpty(mySSL);
 isEmpty(SSL);
+
+findPrevious(SSL, 'Helo');
