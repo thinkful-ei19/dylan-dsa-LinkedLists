@@ -255,6 +255,23 @@ function reverseList(list) {
 
 }
 
+//////////////////////////
+//THIRD FROM THE END
+/////////////////////////
+function thirdFromEnd(list) {
+  if (!list.head) return;
+
+  let currNode = list.head;
+
+  while (currNode.next.next.next !== null) {
+    currNode = currNode.next;
+  }
+
+  console.log(currNode.value);
+
+}
+
+
 
 const SSL = new LinkedList();
 const mySSL = new LinkedList();
@@ -274,8 +291,8 @@ function main() {
 
 main();
 display(SSL);
-reverseList(SSL);
-display(SSL);
+thirdFromEnd(SSL);
+// reverseList(SSL);
 // display(SSL);
 // display(mySSL);
 // display(SSL);
