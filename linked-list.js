@@ -115,6 +115,30 @@ class LinkedList {
 
   }
 
+  insertAt(item, position) {
+
+    if (!this.head) this.insertFirst(item);
+
+    let currNode = this.head;
+    let previousNode = this.head;
+    let counter = 0;
+
+    while (counter !== position) {
+
+      if (!currNode.next) this.insertLast(item);
+
+      previousNode = currNode;
+      currNode = currNode.next;
+      counter++;
+    }
+
+    let newItem = new _Node(item);
+
+    newItem.next = currNode;
+    previousNode.next = newItem;
+
+  }
+
 }
 
 function main() {
@@ -126,7 +150,7 @@ function main() {
   SSL.insertLast('Husker');
   SSL.insertLast('Starbuck');
   SSL.insertLast('Tauhida');
-  SSL.insertAfter('Dylan', 'Helo');
+  SSL.insertAt('Dylan', 5);
   console.log(JSON.stringify(SSL, null, 2));
 
 }
