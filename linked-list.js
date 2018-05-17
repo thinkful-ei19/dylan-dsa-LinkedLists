@@ -268,9 +268,27 @@ function thirdFromEnd(list) {
   }
 
   console.log(currNode.value);
-
+  return currNode.value;
 }
 
+//////////////////////////
+//MIDDLE OF LINKED LIST
+/////////////////////////
+function middleOfList(list) {
+
+  if (!list.head) return;
+
+  let fast = list.head;
+  let slow = list.head;
+
+  while (fast !== null && fast.next !== null) {
+    fast = fast.next.next;
+    slow = slow.next;
+  }
+
+  console.log(slow.value);
+
+}
 
 
 const SSL = new LinkedList();
@@ -284,6 +302,7 @@ function main() {
   SSL.insertLast('Husker');
   SSL.insertLast('Starbuck');
   SSL.insertLast('Tauhida');
+  // SSL.insertLast('Bianca');
   SSL.insertAt('Dylan', 3);
   // console.log(JSON.stringify(SSL, null, 2));
 
@@ -291,7 +310,8 @@ function main() {
 
 main();
 display(SSL);
-thirdFromEnd(SSL);
+middleOfList(SSL);
+// thirdFromEnd(SSL);
 // reverseList(SSL);
 // display(SSL);
 // display(mySSL);
